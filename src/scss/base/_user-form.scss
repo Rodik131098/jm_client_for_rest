@@ -1,0 +1,10 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  &__label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+  }
+}

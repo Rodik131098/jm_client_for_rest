@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  height: 50px;
+  &__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  &__logo {
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  }
+  &__logout {
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
