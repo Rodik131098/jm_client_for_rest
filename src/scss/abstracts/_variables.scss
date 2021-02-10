@@ -1,3 +1,4 @@
 // Scss variables (colours etc...)
-
+$header-height: 50px;
 $primary-colour: #333333;
+$height-without-header: calc(100vh - #{$header-height});

@@ -7,6 +7,7 @@
     <meta name="description" content="Lucas Winkler's gulp v4 boilerplate" />
     <meta name="keywords" content="lucas winkler, gulp, boilerplate, gulp boilerplate, live reload">
     <title>Lucas Winkler's Gulp v4 Boilerplate</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js" integrity="sha512-uzOpZ74myvXTYZ+mXUsPhDF+/iL/n32GDxdryI2SJronkEyKC8FBFRLiBQ7l7U/PTYebDbgTtbqTa6/vGtU23A==" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -15,7 +16,7 @@
 </head>
 
 <body>
-<div class="wrapper">
+<div class="wrapper bg-light">
     <header class="header bg-dark">
     <div class="container header__container align-middle">
         <div class="header__logo text-white">
@@ -27,21 +28,272 @@
     </div>
 </header>
 
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <nav class="navbar flex-column sidebar">
-    <a class="navbar-brand bg-primary text-white sidebar__elem active" href="/admin">Admin</a>
+    <div class="container p-0 d-flex">
+        <nav class="navbar flex-column sidebar bg-white">
+    <a class="navbar-brand sidebar__elem bg-primary text-white active" href="/admin">Admin</a>
     <a class="navbar-brand sidebar__elem" href="/user">User</a>
 </nav>
-
-            <div class="main">
-                <h2>Admin panel</h2>
-            </div>
-        </div>
-
-
+        <div class="main" id="admin-page">
+            <h2>Admin panel</h2>
+            <div class="tabs-panel">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="users-table-tab"
+               data-toggle="tab" href="#users-table"
+               role="tab" aria-controls="users-table"
+               aria-selected="true">Users table</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="new-user-tab"
+               data-toggle="tab" href="#new-user"
+               role="tab" aria-controls="new-user"
+               aria-selected="false">New User</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active border border-top-0" id="users-table"
+     role="tabpanel" aria-labelledby="users-table-tab">
+    <div class="tab-pane__header border-bottom bg-light">
+        <h3>All users</h3>
+    </div>
+    <div class="tab-pane__content bg-white">
+        <table class="table table-striped user-info-table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td data-name="id">7</td>
+        <td data-name="firstName">user</td>
+        <td data-name="lastName">user</td>
+        <td data-name="age">30</td>
+        <td data-name="email">user@mail.ru</td>
+        <td data-name="authorities">ADMIN USER</td>
+        <td><button class="btn btn-primary user-info-table__button"
+                    data-delete="false">Edit</button></td>
+        <td><button class="btn btn-danger user-info-table__button"
+                    data-delete="true">Delete</button></td>
+    </tr>
+    </tbody>
+</table>
+    </div>
+</div>
+        <div class="tab-pane fade border border-top-0" id="new-user"
+     role="tabpanel" aria-labelledby="new-user-tab">
+    <div class="tab-pane__header border-bottom bg-light">
+        <h3>New user</h3>
+    </div>
+    <div class="tab-pane__content bg-white">
+        <form action="" class="user-form">
+    <div class="form-group d-none">
+        <label class="user-form__label">
+            <span>ID</span>
+            <input type="number" class="form-control"
+                   name="id" disabled
+                   placeholder="ID">
+        </label>
     </div>
 
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>First name</span>
+            <input type="text" class="form-control"
+                   name="firstName"
+                   placeholder="First name">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Last name</span>
+            <input type="text" class="form-control"
+                   name="lastName"
+                   placeholder="Last name">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Age</span>
+            <input type="text" class="form-control"
+                   name="age"
+                   placeholder="Age">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Email</span>
+            <input type="text" class="form-control"
+                   name="email"
+                   placeholder="email@email.com">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Password</span>
+            <input type="password" class="form-control"
+                   name="password"
+                   placeholder="Password">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label mx-auto">
+            <span>Role</span>
+            <select multiple class="form-control" name="authorities">
+                <option>ADMIN</option>
+                <option>USER</option>
+            </select>
+        </label>
+    </div>
+
+
+    <button type="submit" class="btn btn-success mx-auto">Add new user</button>
+</form>
+    </div>
+</div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="user-form-modal" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <form action="" class="user-form">
+    <div class="form-group d-none">
+        <label class="user-form__label">
+            <span>ID</span>
+            <input type="number" class="form-control"
+                   name="id" disabled
+                   placeholder="ID">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>First name</span>
+            <input type="text" class="form-control"
+                   name="firstName"
+                   placeholder="First name">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Last name</span>
+            <input type="text" class="form-control"
+                   name="lastName"
+                   placeholder="Last name">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Age</span>
+            <input type="text" class="form-control"
+                   name="age"
+                   placeholder="Age">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Email</span>
+            <input type="text" class="form-control"
+                   name="email"
+                   placeholder="email@email.com">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label">
+            <span>Password</span>
+            <input type="password" class="form-control"
+                   name="password"
+                   placeholder="Password">
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label class="user-form__label mx-auto">
+            <span>Role</span>
+            <select multiple class="form-control" name="authorities">
+                <option>ADMIN</option>
+                <option>USER</option>
+            </select>
+        </label>
+    </div>
+
+
+    <button type="submit" class="btn btn-success mx-auto">Add new user</button>
+</form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"
+                        id="user-form-modal-submit">Send message</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <div class="modal fade" id="info-modal" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <p>тыры пыры</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
