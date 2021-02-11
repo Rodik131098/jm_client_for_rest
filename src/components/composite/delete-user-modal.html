@@ -1,0 +1,93 @@
+<div class="modal fade" id="delete-user-modal" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+
+                <form action="" class="user-form">
+                    <div class="form-group">
+                        <label class="user-form__label">
+                            <span>ID</span>
+                            <input type="number" class="form-control"
+                                   name="id" disabled
+                                   placeholder="ID">
+                        </label>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="user-form__label">
+                            <span>First name</span>
+                            <input type="text" class="form-control"
+                                   name="firstName"
+                                   value="user"
+                                   disabled
+                                   placeholder="First name">
+                        </label>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="user-form__label">
+                            <span>Last name</span>
+                            <input type="text" class="form-control"
+                                   name="lastName"
+                                   value="user"
+                                   disabled
+                                   placeholder="Last name">
+                        </label>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="user-form__label">
+                            <span>Age</span>
+                            <input type="text" class="form-control"
+                                   name="age"
+                                   value="30"
+                                   disabled
+                                   placeholder="Age">
+                        </label>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="user-form__label">
+                            <span>Email</span>
+                            <input type="text" class="form-control"
+                                   name="email"
+                                   value="user@mail.ru"
+                                   disabled
+                                   placeholder="email@email.com">
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="user-form__label mx-auto" >
+                            <span>Role</span>
+                            <select multiple disabled class="form-control" name="authorities">
+                                <option selected>ADMIN</option>
+                                <option>USER</option>
+                            </select>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger"
+                        id="user-form-modal-submit">Delete</button>
+            </div>
+        </div>
+    </div>
+
+</div>

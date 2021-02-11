@@ -5,8 +5,10 @@
     @@include("../components/simple/header.html')
 
     <div class="container p-0 d-flex">
-        @@include('../components/simple/navbar.html')
-        <div class="main" id="user-page">
+        <nav class="navbar flex-column sidebar bg-white">
+            <a class="navbar-brand sidebar__elem bg-primary text-white active" href="/user">User</a>
+        </nav>
+        <div class="main bg-light" id="user-page">
             <h2>User information-page</h2>
             <div class="tab-content">
                 <div class="tab-pane fade show active border border-top-0" id="users-table"
@@ -24,8 +26,6 @@
                                 <th scope="col">Age</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Role</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -36,10 +36,6 @@
                                 <td data-name="age">30</td>
                                 <td data-name="email">user@mail.ru</td>
                                 <td data-name="authorities">ADMIN USER</td>
-                                <td><button class="btn btn-primary user-info-table__button"
-                                            data-delete="false">Edit</button></td>
-                                <td><button class="btn btn-danger user-info-table__button"
-                                            data-delete="true">Delete</button></td>
                             </tr>
                             </tbody>
                         </table>
@@ -49,7 +45,5 @@
         </div>
     </div>
 </body>
-@@include('../components/composite/user-form-modal.html')
-@@include('../components/simple/info-modal.html')
 @@include('../components/simple/bottom.html')
 </html>
